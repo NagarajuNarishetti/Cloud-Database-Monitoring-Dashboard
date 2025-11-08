@@ -8,9 +8,10 @@ import type { EChartsOption } from 'echarts'
 
 interface ChartProps {
   metric: Metric
+  baseline?: number
 }
 
-export default function Chart({ metric }: ChartProps) {
+export default function Chart({ metric, baseline }: ChartProps) {
   const { theme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
@@ -173,9 +174,26 @@ export default function Chart({ metric }: ChartProps) {
           animationDuration: 1000,
           animationEasing: 'cubicOut',
         },
+        ...(baseline !== undefined
+          ? [
+              {
+                name: 'Baseline',
+                type: 'line' as const,
+                data: new Array(metric.timestamps.length).fill(baseline),
+                lineStyle: {
+                  color: '#FF9800',
+                  width: 1,
+                  type: 'dashed' as const,
+                },
+                symbol: 'none' as const,
+                silent: true,
+                animation: false,
+              },
+            ]
+          : []),
       ],
     }),
-    [metric, textColor, splitLineColor, tooltipBg, backgroundColor]
+    [metric, baseline, textColor, splitLineColor, tooltipBg, backgroundColor]
   )
 
   return (

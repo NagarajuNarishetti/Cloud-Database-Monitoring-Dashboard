@@ -6,11 +6,15 @@ import MetricCard from './components/MetricCard'
 import SectionHeader from './components/SectionHeader'
 import SummaryCard from './components/SummaryCard'
 import LoadingSkeleton from './components/LoadingSkeleton'
+import ChartControls, { type TimeRange, type AggregateType } from './components/ChartControls'
+import { processMetric } from '@/app/lib/metricUtils'
 
 export default function Dashboard() {
   const [metricsData, setMetricsData] = useState<MetricsData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [timeRange, setTimeRange] = useState<TimeRange>('1h')
+  const [aggregate, setAggregate] = useState<AggregateType>('none')
 
   useEffect(() => {
     const fetchMetrics = async () => {
@@ -144,13 +148,29 @@ export default function Dashboard() {
         </div>
       )}
 
-      {metricsData.sections.map((section) => (
+      {metricsData.sections.map((section, index) => (
         <div key={section.title} className="mb-12">
-          <SectionHeader title={section.title} description={section.description} />
+          <SectionHeader
+            title={section.title}
+            description={section.description}
+            timeRange={timeRange}
+            aggregate={aggregate}
+            onTimeRangeChange={setTimeRange}
+            onAggregateChange={setAggregate}
+            showControls={index === 0}
+          />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {section.metrics.map((metric) => (
-              <MetricCard key={metric.name} metric={metric} />
-            ))}
+            {section.metrics.map((metric) => {
+              const processedMetric = processMetric(metric, timeRange, aggregate)
+              // Calculate baseline (average of first 3 values for reference)
+              const baseline =
+                metric.values.length >= 3
+                  ? metric.values.slice(0, 3).reduce((sum, val) => sum + val, 0) / 3
+                  : undefined
+              return (
+                <MetricCard key={metric.name} metric={processedMetric} baseline={baseline} />
+              )
+            })}
           </div>
         </div>
       ))}

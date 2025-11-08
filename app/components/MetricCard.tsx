@@ -6,9 +6,10 @@ import Chart from './Chart'
 
 interface MetricCardProps {
   metric: Metric
+  baseline?: number
 }
 
-export default function MetricCard({ metric }: MetricCardProps) {
+export default function MetricCard({ metric, baseline }: MetricCardProps) {
   const getPriorityColor = (priority: string) => {
     switch (priority) {
       case 'high':
@@ -79,8 +80,13 @@ export default function MetricCard({ metric }: MetricCardProps) {
       </div>
 
       <div className="h-[250px]">
-        <Chart metric={metric} />
+        <Chart metric={metric} baseline={baseline} />
       </div>
+      {baseline !== undefined && (
+        <div className="mt-2 text-xs text-gray-500 dark:text-gray-500">
+          Baseline: {formatValue(baseline, metric.unit)}
+        </div>
+      )}
     </div>
   )
 }
