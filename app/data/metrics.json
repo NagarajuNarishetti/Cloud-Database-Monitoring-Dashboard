@@ -1,0 +1,388 @@
+{
+  "sections": [
+    {
+      "title": "Overview",
+      "description": "Core database health metrics",
+      "metrics": [
+        {
+          "name": "CPUUtilization",
+          "description": "The percentage of CPU utilization. High values indicate the database instance is under heavy load.",
+          "unit": "Percent",
+          "category": "Overview",
+          "priority": "high",
+          "timestamps": [
+            "2024-01-01T00:00:00Z",
+            "2024-01-01T01:00:00Z",
+            "2024-01-01T02:00:00Z",
+            "2024-01-01T03:00:00Z",
+            "2024-01-01T04:00:00Z",
+            "2024-01-01T05:00:00Z",
+            "2024-01-01T06:00:00Z",
+            "2024-01-01T07:00:00Z",
+            "2024-01-01T08:00:00Z",
+            "2024-01-01T09:00:00Z",
+            "2024-01-01T10:00:00Z",
+            "2024-01-01T11:00:00Z"
+          ],
+          "values": [45.2, 52.8, 48.3, 55.1, 60.4, 58.9, 62.3, 59.7, 65.2, 68.1, 64.5, 61.8]
+        },
+        {
+          "name": "FreeableMemory",
+          "description": "The amount of available random access memory (RAM) in bytes. Low values may indicate memory pressure.",
+          "unit": "Bytes",
+          "category": "Overview",
+          "priority": "high",
+          "timestamps": [
+            "2024-01-01T00:00:00Z",
+            "2024-01-01T01:00:00Z",
+            "2024-01-01T02:00:00Z",
+            "2024-01-01T03:00:00Z",
+            "2024-01-01T04:00:00Z",
+            "2024-01-01T05:00:00Z",
+            "2024-01-01T06:00:00Z",
+            "2024-01-01T07:00:00Z",
+            "2024-01-01T08:00:00Z",
+            "2024-01-01T09:00:00Z",
+            "2024-01-01T10:00:00Z",
+            "2024-01-01T11:00:00Z"
+          ],
+          "values": [2147483648, 2097152000, 2055208960, 2013265920, 1971322880, 1929379840, 1887436800, 1845493760, 1803550720, 1761607680, 1719664640, 1677721600]
+        },
+        {
+          "name": "FreeStorageSpace",
+          "description": "The amount of available storage space in bytes. Monitor to prevent storage exhaustion.",
+          "unit": "Bytes",
+          "category": "Overview",
+          "priority": "high",
+          "timestamps": [
+            "2024-01-01T00:00:00Z",
+            "2024-01-01T01:00:00Z",
+            "2024-01-01T02:00:00Z",
+            "2024-01-01T03:00:00Z",
+            "2024-01-01T04:00:00Z",
+            "2024-01-01T05:00:00Z",
+            "2024-01-01T06:00:00Z",
+            "2024-01-01T07:00:00Z",
+            "2024-01-01T08:00:00Z",
+            "2024-01-01T09:00:00Z",
+            "2024-01-01T10:00:00Z",
+            "2024-01-01T11:00:00Z"
+          ],
+          "values": [107374182400, 107164467200, 106954752000, 106745036800, 106535321600, 106325606400, 106115891200, 105906176000, 105696460800, 105486745600, 105277030400, 105067315200]
+        },
+        {
+          "name": "DatabaseConnections",
+          "description": "The number of active database connections. High values may indicate connection pool exhaustion.",
+          "unit": "Count",
+          "category": "Overview",
+          "priority": "high",
+          "timestamps": [
+            "2024-01-01T00:00:00Z",
+            "2024-01-01T01:00:00Z",
+            "2024-01-01T02:00:00Z",
+            "2024-01-01T03:00:00Z",
+            "2024-01-01T04:00:00Z",
+            "2024-01-01T05:00:00Z",
+            "2024-01-01T06:00:00Z",
+            "2024-01-01T07:00:00Z",
+            "2024-01-01T08:00:00Z",
+            "2024-01-01T09:00:00Z",
+            "2024-01-01T10:00:00Z",
+            "2024-01-01T11:00:00Z"
+          ],
+          "values": [12, 15, 18, 22, 25, 28, 30, 32, 35, 38, 40, 42]
+        }
+      ]
+    },
+    {
+      "title": "Performance",
+      "description": "Database performance and I/O metrics",
+      "metrics": [
+        {
+          "name": "DBLoad",
+          "description": "The number of active database sessions normalized by the number of vCPUs. Values above 1.0 indicate high load.",
+          "unit": "None",
+          "category": "Performance",
+          "priority": "high",
+          "timestamps": [
+            "2024-01-01T00:00:00Z",
+            "2024-01-01T01:00:00Z",
+            "2024-01-01T02:00:00Z",
+            "2024-01-01T03:00:00Z",
+            "2024-01-01T04:00:00Z",
+            "2024-01-01T05:00:00Z",
+            "2024-01-01T06:00:00Z",
+            "2024-01-01T07:00:00Z",
+            "2024-01-01T08:00:00Z",
+            "2024-01-01T09:00:00Z",
+            "2024-01-01T10:00:00Z",
+            "2024-01-01T11:00:00Z"
+          ],
+          "values": [0.8, 0.9, 0.85, 0.95, 1.0, 1.05, 1.1, 1.08, 1.15, 1.2, 1.12, 1.05]
+        },
+        {
+          "name": "ReadLatency",
+          "description": "The average amount of time taken per disk I/O operation for read requests in milliseconds.",
+          "unit": "Milliseconds",
+          "category": "Performance",
+          "priority": "high",
+          "timestamps": [
+            "2024-01-01T00:00:00Z",
+            "2024-01-01T01:00:00Z",
+            "2024-01-01T02:00:00Z",
+            "2024-01-01T03:00:00Z",
+            "2024-01-01T04:00:00Z",
+            "2024-01-01T05:00:00Z",
+            "2024-01-01T06:00:00Z",
+            "2024-01-01T07:00:00Z",
+            "2024-01-01T08:00:00Z",
+            "2024-01-01T09:00:00Z",
+            "2024-01-01T10:00:00Z",
+            "2024-01-01T11:00:00Z"
+          ],
+          "values": [2.5, 2.8, 3.1, 3.4, 3.7, 4.0, 4.2, 4.5, 4.8, 5.1, 4.9, 4.6]
+        },
+        {
+          "name": "WriteLatency",
+          "description": "The average amount of time taken per disk I/O operation for write requests in milliseconds.",
+          "unit": "Milliseconds",
+          "category": "Performance",
+          "priority": "high",
+          "timestamps": [
+            "2024-01-01T00:00:00Z",
+            "2024-01-01T01:00:00Z",
+            "2024-01-01T02:00:00Z",
+            "2024-01-01T03:00:00Z",
+            "2024-01-01T04:00:00Z",
+            "2024-01-01T05:00:00Z",
+            "2024-01-01T06:00:00Z",
+            "2024-01-01T07:00:00Z",
+            "2024-01-01T08:00:00Z",
+            "2024-01-01T09:00:00Z",
+            "2024-01-01T10:00:00Z",
+            "2024-01-01T11:00:00Z"
+          ],
+          "values": [3.2, 3.5, 3.8, 4.1, 4.4, 4.7, 5.0, 5.3, 5.6, 5.9, 5.7, 5.4]
+        },
+        {
+          "name": "DiskQueueDepth",
+          "description": "The number of outstanding I/O requests waiting to access the disk. High values indicate I/O bottlenecks.",
+          "unit": "Count",
+          "category": "Performance",
+          "priority": "high",
+          "timestamps": [
+            "2024-01-01T00:00:00Z",
+            "2024-01-01T01:00:00Z",
+            "2024-01-01T02:00:00Z",
+            "2024-01-01T03:00:00Z",
+            "2024-01-01T04:00:00Z",
+            "2024-01-01T05:00:00Z",
+            "2024-01-01T06:00:00Z",
+            "2024-01-01T07:00:00Z",
+            "2024-01-01T08:00:00Z",
+            "2024-01-01T09:00:00Z",
+            "2024-01-01T10:00:00Z",
+            "2024-01-01T11:00:00Z"
+          ],
+          "values": [0.5, 0.8, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0, 3.3, 3.1, 2.8]
+        },
+        {
+          "name": "TotalIOPS",
+          "description": "The total number of I/O operations per second (read and write combined).",
+          "unit": "Count/Second",
+          "category": "Performance",
+          "priority": "medium",
+          "timestamps": [
+            "2024-01-01T00:00:00Z",
+            "2024-01-01T01:00:00Z",
+            "2024-01-01T02:00:00Z",
+            "2024-01-01T03:00:00Z",
+            "2024-01-01T04:00:00Z",
+            "2024-01-01T05:00:00Z",
+            "2024-01-01T06:00:00Z",
+            "2024-01-01T07:00:00Z",
+            "2024-01-01T08:00:00Z",
+            "2024-01-01T09:00:00Z",
+            "2024-01-01T10:00:00Z",
+            "2024-01-01T11:00:00Z"
+          ],
+          "values": [120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 375, 345]
+        }
+      ]
+    },
+    {
+      "title": "Resource",
+      "description": "Resource utilization and credit metrics",
+      "metrics": [
+        {
+          "name": "CPUCreditBalance",
+          "description": "The number of CPU credits available for burst performance (t2/t3 instance types).",
+          "unit": "Count",
+          "category": "Resource",
+          "priority": "medium",
+          "timestamps": [
+            "2024-01-01T00:00:00Z",
+            "2024-01-01T01:00:00Z",
+            "2024-01-01T02:00:00Z",
+            "2024-01-01T03:00:00Z",
+            "2024-01-01T04:00:00Z",
+            "2024-01-01T05:00:00Z",
+            "2024-01-01T06:00:00Z",
+            "2024-01-01T07:00:00Z",
+            "2024-01-01T08:00:00Z",
+            "2024-01-01T09:00:00Z",
+            "2024-01-01T10:00:00Z",
+            "2024-01-01T11:00:00Z"
+          ],
+          "values": [288, 285, 282, 279, 276, 273, 270, 267, 264, 261, 258, 255]
+        },
+        {
+          "name": "SwapUsage",
+          "description": "The amount of swap space used in bytes. High values indicate memory pressure.",
+          "unit": "Bytes",
+          "category": "Resource",
+          "priority": "high",
+          "timestamps": [
+            "2024-01-01T00:00:00Z",
+            "2024-01-01T01:00:00Z",
+            "2024-01-01T02:00:00Z",
+            "2024-01-01T03:00:00Z",
+            "2024-01-01T04:00:00Z",
+            "2024-01-01T05:00:00Z",
+            "2024-01-01T06:00:00Z",
+            "2024-01-01T07:00:00Z",
+            "2024-01-01T08:00:00Z",
+            "2024-01-01T09:00:00Z",
+            "2024-01-01T10:00:00Z",
+            "2024-01-01T11:00:00Z"
+          ],
+          "values": [0, 0, 0, 1048576, 2097152, 3145728, 4194304, 5242880, 6291456, 7340032, 8388608, 9437184]
+        },
+        {
+          "name": "TransactionLogsDiskUsage",
+          "description": "The amount of disk space used by transaction logs in bytes. Monitor to prevent log disk exhaustion.",
+          "unit": "Bytes",
+          "category": "Resource",
+          "priority": "medium",
+          "timestamps": [
+            "2024-01-01T00:00:00Z",
+            "2024-01-01T01:00:00Z",
+            "2024-01-01T02:00:00Z",
+            "2024-01-01T03:00:00Z",
+            "2024-01-01T04:00:00Z",
+            "2024-01-01T05:00:00Z",
+            "2024-01-01T06:00:00Z",
+            "2024-01-01T07:00:00Z",
+            "2024-01-01T08:00:00Z",
+            "2024-01-01T09:00:00Z",
+            "2024-01-01T10:00:00Z",
+            "2024-01-01T11:00:00Z"
+          ],
+          "values": [1073741824, 1080033280, 1086324736, 1092616192, 1098907648, 1105199104, 1111490560, 1117782016, 1124073472, 1130364928, 1136656384, 1142947840]
+        }
+      ]
+    },
+    {
+      "title": "Replication & Backup",
+      "description": "Replication lag and transaction log metrics",
+      "metrics": [
+        {
+          "name": "OldestReplicationSlotLag",
+          "description": "The lag of the slowest replica in bytes. High values indicate replication delays.",
+          "unit": "Bytes",
+          "category": "Replication & Backup",
+          "priority": "high",
+          "timestamps": [
+            "2024-01-01T00:00:00Z",
+            "2024-01-01T01:00:00Z",
+            "2024-01-01T02:00:00Z",
+            "2024-01-01T03:00:00Z",
+            "2024-01-01T04:00:00Z",
+            "2024-01-01T05:00:00Z",
+            "2024-01-01T06:00:00Z",
+            "2024-01-01T07:00:00Z",
+            "2024-01-01T08:00:00Z",
+            "2024-01-01T09:00:00Z",
+            "2024-01-01T10:00:00Z",
+            "2024-01-01T11:00:00Z"
+          ],
+          "values": [0, 1048576, 2097152, 3145728, 4194304, 5242880, 6291456, 7340032, 8388608, 9437184, 10485760, 11534336]
+        },
+        {
+          "name": "TransactionLogsGeneration",
+          "description": "The rate at which transaction logs are generated in bytes per second.",
+          "unit": "Bytes/Second",
+          "category": "Replication & Backup",
+          "priority": "medium",
+          "timestamps": [
+            "2024-01-01T00:00:00Z",
+            "2024-01-01T01:00:00Z",
+            "2024-01-01T02:00:00Z",
+            "2024-01-01T03:00:00Z",
+            "2024-01-01T04:00:00Z",
+            "2024-01-01T05:00:00Z",
+            "2024-01-01T06:00:00Z",
+            "2024-01-01T07:00:00Z",
+            "2024-01-01T08:00:00Z",
+            "2024-01-01T09:00:00Z",
+            "2024-01-01T10:00:00Z",
+            "2024-01-01T11:00:00Z"
+          ],
+          "values": [6291456, 7340032, 8388608, 9437184, 10485760, 11534336, 12582912, 13631488, 14680064, 15728640, 14745600, 13762560]
+        }
+      ]
+    },
+    {
+      "title": "Network",
+      "description": "Network throughput metrics",
+      "metrics": [
+        {
+          "name": "NetworkReceiveThroughput",
+          "description": "The incoming network traffic in bytes per second.",
+          "unit": "Bytes/Second",
+          "category": "Network",
+          "priority": "medium",
+          "timestamps": [
+            "2024-01-01T00:00:00Z",
+            "2024-01-01T01:00:00Z",
+            "2024-01-01T02:00:00Z",
+            "2024-01-01T03:00:00Z",
+            "2024-01-01T04:00:00Z",
+            "2024-01-01T05:00:00Z",
+            "2024-01-01T06:00:00Z",
+            "2024-01-01T07:00:00Z",
+            "2024-01-01T08:00:00Z",
+            "2024-01-01T09:00:00Z",
+            "2024-01-01T10:00:00Z",
+            "2024-01-01T11:00:00Z"
+          ],
+          "values": [10485760, 12582912, 14680064, 16777216, 18874368, 20971520, 23068672, 25165824, 27262976, 29360128, 28311552, 26214400]
+        },
+        {
+          "name": "NetworkTransmitThroughput",
+          "description": "The outgoing network traffic in bytes per second.",
+          "unit": "Bytes/Second",
+          "category": "Network",
+          "priority": "medium",
+          "timestamps": [
+            "2024-01-01T00:00:00Z",
+            "2024-01-01T01:00:00Z",
+            "2024-01-01T02:00:00Z",
+            "2024-01-01T03:00:00Z",
+            "2024-01-01T04:00:00Z",
+            "2024-01-01T05:00:00Z",
+            "2024-01-01T06:00:00Z",
+            "2024-01-01T07:00:00Z",
+            "2024-01-01T08:00:00Z",
+            "2024-01-01T09:00:00Z",
+            "2024-01-01T10:00:00Z",
+            "2024-01-01T11:00:00Z"
+          ],
+          "values": [5242880, 6291456, 7340032, 8388608, 9437184, 10485760, 11534336, 12582912, 13631488, 14680064, 14155776, 13107200]
+        }
+      ]
+    }
+  ],
+  "lastUpdated": "2024-01-01T11:00:00Z"
+}
+

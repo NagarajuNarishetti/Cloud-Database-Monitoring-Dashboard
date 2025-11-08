@@ -1,0 +1,154 @@
+You are an expert full-stack engineer specialized in modern React and Next.js architecture.
+I want you to design and build a professional, production-ready Next.js web application called “Database Monitoring Dashboard” using Next.js (App Router), TypeScript, TailwindCSS, and Apache ECharts.
+
+📘 Reference Document
+
+I’ve attached a file named CloudWatch.docx — it contains detailed explanations of all AWS RDS CloudWatch metrics (like CPUUtilization, FreeableMemory, DiskQueueDepth, etc.), their usage, and priority levels.
+Use that document as the authoritative source for all metric definitions, categories, and descriptions.
+
+🎯 Goal
+
+Create a clean, modern, and responsive Next.js dashboard that visualizes all database performance metrics grouped into sections, using ECharts line charts.
+This dashboard will be part of a real cloud provider platform where users can monitor their databases.
+
+🧱 Requirements
+🪄 Tech Stack
+
+Next.js (App Router, TypeScript)
+
+TailwindCSS (for styling and layout)
+
+ECharts via echarts-for-react
+
+Component-based architecture with reusable UI parts
+
+Use React Hooks and functional components
+
+Maintain strict ESLint + Prettier formatting
+
+📊 Dashboard Structure
+
+Follow this section breakdown (from the doc):
+
+Overview Section
+
+CPUUtilization
+
+FreeableMemory
+
+FreeStorageSpace
+
+DatabaseConnections
+
+Performance Section
+
+DBLoad, ReadLatency, WriteLatency, DiskQueueDepth, TotalIOPS
+
+Resource Section
+
+CPUCreditBalance, SwapUsage, TransactionLogsDiskUsage
+
+Replication & Backup Section
+
+OldestReplicationSlotLag, TransactionLogsGeneration
+
+Network Section
+
+NetworkReceiveThroughput, NetworkTransmitThroughput
+
+Each section should have a header, and each metric should be rendered inside a MetricCard component that includes:
+
+metric name
+
+short description (from doc)
+
+ECharts line chart (with dummy data for now)
+
+🧩 Architecture Guidelines
+
+Use a modular, scalable folder structure like:
+
+app/
+  ├── layout.tsx
+  ├── page.tsx
+  ├── components/
+  │   ├── MetricCard.tsx
+  │   ├── Chart.tsx
+  │   └── SectionHeader.tsx
+  ├── data/
+  │   └── metrics.json  // mock data for demo
+  ├── lib/
+  │   └── types.ts      // define TypeScript interfaces
+  ├── styles/
+  │   └── globals.css
+
+💡 Design Guidelines
+
+Professional dark + light mode support.
+
+Use a clean, cloud-console-like UI (similar to AWS/GCP dashboards).
+
+Smooth chart animations.
+
+Responsive grid layout (grid-cols-1 sm:grid-cols-2 lg:grid-cols-3).
+
+Each card should have rounded corners, soft shadows, and hover effects.
+
+Add a top navigation bar with the app name (“Cloud Database Monitoring Dashboard”).
+
+Keep color palette neutral (gray, blue, green).
+
+⚙️ Functionality
+
+Load metrics from a mock metrics.json file.
+
+Display dynamic charts using sample timestamp/value data arrays.
+
+Allow toggling between sections with smooth transitions.
+
+Include tooltips on charts for timestamps & values.
+
+(Optional) Add sidebar filters for metric categories in future.
+
+🧠 Code Quality Expectations
+
+Write well-structured, readable code with clear separation of logic and presentation.
+
+Use TypeScript interfaces for metric objects (e.g. Metric { name, description, unit, timestamps, values }).
+
+Use async data fetching (mocked now, easily replaceable later with real CloudWatch API).
+
+Ensure accessibility (semantic HTML, ARIA labels).
+
+Follow modern React/Next.js patterns (no legacy code).
+
+🚀 Deliverables
+
+A fully working Next.js app running locally (npm run dev) that displays all metrics grouped into sections.
+
+Properly formatted code following best practices, ready for integration into our production codebase.
+
+Optional: Add placeholder API endpoint /api/metrics to return mock JSON data for easy future integration.
+
+🧾 Bonus (if time permits)
+
+Add dark/light mode toggle using next-themes.
+
+Add loading skeletons while fetching data.
+
+Add small summary cards on top (e.g., average CPU, memory trend).
+
+✅ Output Expectation
+
+Generate production-grade Next.js code with:
+
+Complete folder structure
+
+All pages, components, and sample data files
+
+Ready-to-run project (no TODO placeholders)
+
+Professional UI similar to a real cloud monitoring console
+
+Final Note:
+Focus on creating clean, modular, and extensible code that would be easy for an enterprise engineering team to import directly into a real cloud provider’s platform.
