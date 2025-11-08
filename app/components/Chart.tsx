@@ -175,7 +175,7 @@ export default function Chart({ metric }: ChartProps) {
         },
       ],
     }),
-    [metric, isDark, textColor, splitLineColor, tooltipBg, backgroundColor]
+    [metric, textColor, splitLineColor, tooltipBg, backgroundColor]
   )
 
   return (

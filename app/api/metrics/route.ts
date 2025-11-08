@@ -1,11 +1,14 @@
 import { NextResponse } from 'next/server'
-import metricsData from '@/app/data/metrics.json'
+import metricsDataRaw from '@/app/data/metrics.json'
 import type { MetricsData } from '@/app/lib/types'
 
 export async function GET() {
   try {
     // Simulate API delay
     await new Promise((resolve) => setTimeout(resolve, 500))
+
+    // Type assertion to ensure priority values match the literal union type
+    const metricsData = metricsDataRaw as Omit<MetricsData, 'lastUpdated'>
 
     const data: MetricsData = {
       ...metricsData,
